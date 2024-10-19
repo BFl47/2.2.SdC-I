@@ -1,0 +1,3 @@
+B
+
+il processo passa dallo stato waiting allo stato ready, poi successivamente può passare allo stato running, ma il passaggio non è diretto.

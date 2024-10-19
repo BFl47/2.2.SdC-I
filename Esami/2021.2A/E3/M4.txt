@@ -1,0 +1,4 @@
+C è falsa, poichè invocando una system call il processo passa dallo stato RUNNING allo stato waiting
+infatti quando un processo è nello stato ready è pronto per eseguire un'istruzione ma non ha il controllo della cpu, quinid non può invocare nessuna funzione.
+
+

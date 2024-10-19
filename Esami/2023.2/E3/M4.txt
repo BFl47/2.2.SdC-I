@@ -1,0 +1,6 @@
+Permessi:       0   7   3   5       rappresentazione in ottale
+                  111 011 101       rappresentazione binaria
+                  rwe -we r-e       in ordine: user, group, others 
+
+Quindi il gruppo proprietario non può leggere i file
+C

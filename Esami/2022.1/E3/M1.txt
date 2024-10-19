@@ -1,0 +1,3 @@
+ecx è un registro caller saved, quindi se non si salva il valore prima di chiamare una funzione, dopo che essa lo avrà sporcato, non si potrà prevedere il suo valore
+
+C 

@@ -1,0 +1,5 @@
+fork restituisce 0 al figlio e pid_figlio al padre
+fork() && fork() sarà vera solo per il processo originario
+analogo discorso per la seconda condizione, perciò verrà stampato solo "o"
+
+D

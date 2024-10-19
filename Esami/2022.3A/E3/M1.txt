@@ -1,0 +1,4 @@
+in bss ci sono le variabili globali inizializzate a 0, perciò conterrà x
+inoltre mentre p è una variabile in stack, *p sarà memorizzata nell'heap
+
+A

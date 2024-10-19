@@ -1,0 +1,14 @@
+array:  0   1   2   3
+        4   5   6   7
+        8   9   10  11
+
+
+v[0]    |v[0](0)|       |   cold miss
+v[1]    |v[0](0)|       |   hit
+v[2]    |v[0](1)|v[8](0)|   cold miss
+v[3]    |v[0](2)|v[8](0)|   hit
+v[2] = v[10]                hit
+v[9] = v[1]                 hit
+ci sono due cold miss
+
+Risposta:   B

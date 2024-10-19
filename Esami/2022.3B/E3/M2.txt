@@ -1,0 +1,13 @@
+4 linee 
+dim linea = 64byte
+politica di rimpiazzo LRU
+
+67  |       |       | 65(0) |      |  cold miss
+3   |       |       | 65(1) | 3(0) |  cold miss
+14  | 14(0) |       | 65(2) | 3(1) |  cold miss
+9   | 14(1) |       | 9(0)  | 3(2) |  conflict miss
+10  | 14(2) | 10(0) | 9(1)  | 3(3) |  cold miss
+21  | 14(3) | 10(1) | 9(2)  | 21(0)|  capacity miss
+6   |  6(0) | 10(2) | 9(3)  | 21(1)|  capacity miss
+
+C

@@ -1,0 +1,13 @@
+indirizzi a 24bit
+pagine di dim 1MB -> 2^20
+quindi i bit dedicati all'indice di pagina sono 4
+poichè l'offset dovrebbe propagarsi, guardo inizialmente solo l'offset
+
+A è sbagliata perchè:  ​ 0x04AED0 e 0x04AE20 hanno offset differenti
+C è sbagliata perchè:   0x3AAED0 e 0x04AE20 hanno offset differenti
+D è sbagliata perchè:   0x25ED30 e 0x04AE20 hanno offset differenti
+
+B è la risposta giusta, infatti gli offset corrispondono e inoltre dalla tabella delle pagine si ha:
+0 --> 3
+E --> 4
+7 --> 2

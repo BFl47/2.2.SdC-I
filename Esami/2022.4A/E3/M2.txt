@@ -1,0 +1,11 @@
+Spazio logico a 32 bit: 2^32byte = 4GB
+dimensione di ogni pagina: 2KB = 2^11byte
+dimensione di ogni entry: 32bit = 4byte
+
+numero di pagine: 2^32/2^11 = 2^21 
+questo corrisponde anche al numero di entry
+
+spazio della tabella delle pagine = 4 * 2^21 = 2^2 * 2^21 = 2^23 = 8388608 byte ~ 8MB
+
+D
+

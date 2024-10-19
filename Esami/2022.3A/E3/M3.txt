@@ -1,0 +1,13 @@
+La porta in figura rappresenta la seguente tabella di verità:
+
+    X | Y | R
+    ---------
+    0 | 0 | 0
+    0 | 1 | 1
+    1 | 0 | 1
+    1 | 1 | 0
+
+concidente con la porta XOR
+
+A
+

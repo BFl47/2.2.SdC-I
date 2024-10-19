@@ -1,0 +1,7 @@
+typedef struct S {      base
+char *c;                offset:0    |xxxx|
+char d;                 offset:4    |x-
+short e;                offset:6       xx|
+} S;                    sizeof:8
+
+C

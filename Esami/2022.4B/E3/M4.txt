@@ -1,0 +1,19 @@
+struct S {          base
+    short a;        offset: 0   |xx--|
+    int b;          offset: 4   |xxxx|
+    char c;         offset: 8   |x---|
+    int d;          offset: 12  |xxxx|
+};                  sizeof: 16
+
+ordinando i campi della struct nell'ordine [b, d, a, c] si ottiene:
+
+struct S {          base
+    int b;          offset: 0   |xxxx|
+    int d;          offset: 4   |xxxx|
+    short a;        offset: 8   |xx
+    char c;         offset: 10     x-|
+};                  sizeof: 12
+
+infatti in generale ordinando dall'elemento più grande all'elemento più piccolo si ottiene la dimensione che minimizza il padding
+
+D

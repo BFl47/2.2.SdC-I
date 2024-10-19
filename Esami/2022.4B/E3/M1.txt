@@ -1,0 +1,10 @@
+C
+il comando mv sposta SOURCE in DIRECTORY
+source = stuff
+
+dest = directory hisstuff
+
+percorso relativo:
+~ = hun (home directory dell'utente)
+hun -> home -> / -> home -> hun -> hisstuff
+

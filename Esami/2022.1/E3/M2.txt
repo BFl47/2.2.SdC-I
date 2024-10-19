@@ -1,0 +1,3 @@
+A
+poichè se il branch predictor sbaglia una "previsione", bisognerà tornare indietro, le istruzioni quindi devono essere rimosse dalla pipeline e bisgona ricominciare.
+

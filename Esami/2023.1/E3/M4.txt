@@ -1,0 +1,6 @@
+Permessi    0   1   2   5       ottale
+              001 010 101       binario
+              --e -w- r-e       nell'ordine -> user, group, others
+
+La risposta errata quindi è la B
+poichè gli others non possono scrivere il file.

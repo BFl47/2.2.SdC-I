@@ -1,0 +1,8 @@
+S = T/T'
+
+T = Ta + Tb = 0.4T + 0.6T
+
+Riducendo Ta del 50% si ottiene:
+S = T/[0.2T + 0.6T] = 1/0.8 = 1.25x
+
+C

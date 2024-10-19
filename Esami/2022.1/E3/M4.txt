@@ -1,0 +1,5 @@
+permessi    0   1   2   3       in ottale
+              001 010 011       in binario
+              --e -w- -we       in ordine: user, group, others
+
+la risposta errata quindi è C

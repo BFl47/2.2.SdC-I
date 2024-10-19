@@ -1,0 +1,5 @@
+Il compilatore può applicare il constant propagation, sostituendo x -> 7
+
+ma non può effettuare loop invariant code motion poichè l'istruzione y += x * i dipende dal ciclo
+
+B

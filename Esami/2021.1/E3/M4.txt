@@ -1,0 +1,5 @@
+A è falsa poichè p contiene un indirizzo dell'heap
+C è falsa poichè la variabile p sarà memorizzata nello stack
+B è falsa poichè viene valutata la sizeof(i) = sizeof(int) = 4byte
+
+D

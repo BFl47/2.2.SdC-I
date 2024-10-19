@@ -1,0 +1,7 @@
+0   1   2   3
+A1  B2  C3  D4
+        E6  F5
+
+Leggendo al contrario: F5E6B2A1
+(Little endiannes)
+Risposta:  B

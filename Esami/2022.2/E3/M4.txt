@@ -1,0 +1,6 @@
+Permessi    0   4       2       3           in ottale
+              100     010     011           in binario
+              r--     -w-     -re           in ordine: user, group, others
+
+Il gruppo proprietario ha solo il permesso di scrittura
+C

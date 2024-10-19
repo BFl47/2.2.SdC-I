@@ -1,0 +1,8 @@
+struct S {      base
+char a;         offset: 0   |x-        
+short b;        offset: 2      xx|
+char c;         offset: 4   |x---|
+int d;          offset: 8   |xxxx|
+};              sizeof: 12
+
+D

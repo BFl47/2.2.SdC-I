@@ -1,0 +1,19 @@
+fork() restituisce:
+il pid del figlio al padre
+0 al figlio
+
+perciò le istruzioni dopo if (fork() != 0) verranno eseguite solo dal main
+-> viene generato un figlio che non esegue il corpo della funzione all'interno dell'if
+
+viene eseguita la prima fork e il main genera il secondo figlio;
+successivamente entrambi generano un figlio, quindi ci sarò il terzo figlio del main e il primo figlio del secondo figlio del main.
+    M -> F1
+    |
+    M -> F2 -> F2.1
+    |
+    M -> F3
+
+Per un totale di quattro figli
+
+B
+        

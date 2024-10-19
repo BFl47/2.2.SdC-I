@@ -1,0 +1,6 @@
+Speedup = T/T'
+
+T = Ta + Tb = 0.42T + 0.58T
+
+Riducendo Ta del 40% si ottiene:
+S = T/[0,252T + 0.58T] = 1/0.832 ~ 1.20x

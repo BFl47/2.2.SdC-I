@@ -1,0 +1,5 @@
+La B è errata, poiché con -c si ottiene un file oggetto, non un eseguibile
+
+invece A è giusta poichè con il comando gcc -E bazinga.c si ottiene bazinga.i (testuale)
+analogamente per D, poichè con gcc -S bazinga.c si ottiene bazinga.s (testuale)
+infine anche C è giusta, poiché viene eseguito lo step D e successivamente gcc -o bazinga bazinga.s, si effettua la fase di linking e si genera l'eseguibile bazinga

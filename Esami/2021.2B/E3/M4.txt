@@ -1,0 +1,3 @@
+C
+
+il segnale SIGALRM di default fa terminare il processo

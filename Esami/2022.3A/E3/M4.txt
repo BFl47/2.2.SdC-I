@@ -1,0 +1,8 @@
+Permessi in ottale:     0   5   3   2
+         in binario:      101 011 010
+                          r-e -we -w-   in ordine: user, group, others
+
+Perciò il gruppo proprietario non può leggere il file
+
+C
+

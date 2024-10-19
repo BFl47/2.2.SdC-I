@@ -1,0 +1,18 @@
+speedup = T/T'
+
+T = Ta + Tb, dove Ta = 0.5T e Tb = 0.5T
+
+Riducendo Ta del 50% si ottiene
+speedup = T/[0.25T + 0.5T] = 1.33x
+
+Riducendo Ta del 70% si ottiene
+speedup = T/[0.15T + 0.5T] = 1.54x
+
+Riducendo Ta del 90% si ottiene
+speedup = T/[0.05T + 0.5T] = 1.82x
+
+Quindi in nessuno dei casi precedenti si ottiene uno speedup di 2.5x
+
+Risposta: D
+
+

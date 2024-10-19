@@ -1,0 +1,118 @@
+-------------------------------------------------------------------------------------
+1. Quanti cache miss  vengono effettuati da una chiamata a col2row(a,10000,0,0) (includendo anche i miss fatti in sum) se la cache ha due sole linee da 32 byte, i puntatori sono da 4 byte e tutti i blocchi allocati dinamicamente sono allineati a indirizzi multipli di 32?
+
+a è un array di puntatori alle righe di una matrice. Quindi l’espressione a[i][j] genera due accessi a memoria: uno per a[i] che fornisce il puntatore p al primo byte della riga di indice i, e p[j] per accedere all’elemento di indice j sulla riga di indice i.
+
+Il programma dato quindi è equivalente al seguente, più facile da analizzare:
+
+=====
+static int sum(int** a, int n, int j) {
+    int i, s;
+    for (i=s=0; i<n; ++i) {
+        int* p = a[i];
+        s = s + p[j];
+    }
+    return s;
+}
+
+void col2row(int** a, int n, int i, int j) {
+    int k;
+    for (k=0; k<n; ++k) {
+        int* q = a[i];
+        q[k] = q[k] + sum(a, n, j);
+    }
+}
+=====
+
+Analizziamo separatamente le due funzioni.
+
+A) sum fa 10000 iterazioni:
+
+- a viene scandito sequenzialmente usando la prima linea di cache (delle due disponibili), generando un miss ogni 8 (ci sono 8 puntatori da 4 byte in una linea di 32 byte), quindi in totale 10000/8 = 1.250 miss
+
+- p[k] genera un miss ad ogni iterazione, essendo ogni volta su una riga diversa, quindi in totale 10.000 miss che impegnano la seconda linea di cache senza sporcare la prima usata per scandire a.
+
+In totale, ogni invocazione di sum provoca 10.000 + 1.250 = 11.250 miss.
+
+B) col2row chiama 10.000 volte sum, quindi genera almeno 10.000 * 11.250 = 112.500.000 miss per il tramite di sum. A questi, andrebbero aggiunti i miss generati in col2row, che sono 10.000 (per q = a[i]) + 10.000 (per q[k] + …). Si noti che: 
+
+- anche se q viene scandito per righe, avendo solo due linee di cache, la chiamata a sum le usa entrambe e quindi non permette di conservare la linea che contiene q[k] tra un’iterazione e l’altra del ciclo for di col2row;
+
+- se venisse fatto loop-invariant code motion, int* q = a[i] potrebbe essere spostato fuori dal ciclo, riducendo il conto dei miss di 10.000, ma non facciamo questa assunzione.
+
+In totale, ogni invocazione di col2row provoca (circa) 112.500.000 + 10.000 = 112.510.000 miss. 
+
+Nota: in uno scenario reale, il conto è comunque approssimato poiché potrebbero esserci fluttuazioni dovute al fatto che il sistema operativo processa interrupt che potrebbero sporcare la cache eseguendo codice non considerato nella nostra analisi.
+
+-------------------------------------------------------------------------------------
+2. Riportare il flat profile del programma (punto A del testo)
+
+$ gcc col2row.c main.c -o col2row-pg -O1 -pg
+$ ./col2row-pg
+$ gprof ./col2row-pg > col2row-pg.txt
+
+Si riporta di seguito l’inizio del file ol2row-pg.txt.
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 87.73      1.43     1.43        1     1.43     1.43  col2row
+ 12.27      1.63     0.20                             main
+
+-------------------------------------------------------------------------------------
+3. Il compilatore con -O1 fa inlining della funzione sum in col2row? Se sì, da cosa lo si può stabilire con certezza?
+
+Sì, basta notare che sum non compare nel flat profile del punto 2.
+
+-------------------------------------------------------------------------------------
+4. Usando il comando time, riportare lo speedup della versione ottimizzata del punto B rispetto a quella originale, mostrando come è stato calcolato
+
+Misura tempi di esecuzione della versione non ottimizzata e ottimizzata:
+
+$ gcc col2row.c main.c -o col2row -O1
+$ time ./col2row
+sum = 299940000 [corretto=299940000]
+
+real	0m2.620s
+user	0m2.497s
+sys	0m0.112s
+$ time ./col2row
+sum = 299940000 [corretto=299940000]
+
+real	0m2.683s
+user	0m2.576s
+sys	0m0.104s
+$ time ./col2row
+sum = 299940000 [corretto=299940000]
+
+real	0m2.720s
+user	0m2.596s
+sys	0m0.116s
+$ gcc col2row-opt.c main.c -o col2row-opt -O1
+$ time ./col2row-opt
+sum = 299940000 [corretto=299940000]
+
+real	0m0.214s
+user	0m0.114s
+sys	0m0.099s
+$ time ./col2row-opt
+sum = 299940000 [corretto=299940000]
+
+real	0m0.211s
+user	0m0.099s
+sys	0m0.111s
+$ time ./col2row-opt
+sum = 299940000 [corretto=299940000]
+
+real	0m0.225s
+user	0m0.126s
+sys	0m0.094s
+$ 
+
+media tempi real non ottimizzato: (2.620 + 2.683 + 2.720) / 3 = 2.674
+media tempi real ottimizzato: (0.214 + 0.211 + 0.225) / 3 = 0.216
+
+speedup = 2.674 / 0.216 = 12.379x
+

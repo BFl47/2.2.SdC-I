@@ -1,0 +1,6 @@
+permessi        0   6   4   3       rappresentazione in ottale
+                  110 100 011       rappresentazione in binario
+                  rw- r-- -we       in ordine: proprietario, gruppo proprietario e altri
+
+Quindi il proprietario non può eseguire il file
+A

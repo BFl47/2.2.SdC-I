@@ -1,0 +1,11 @@
+Speedup = T/T'
+
+T = Ta + Tb = 0.5T + 0.5T
+
+se riduciamo Ta del 40% si ottiene:
+S = T/[0.3T + 0.5T] = 1.25x
+
+se riduciamo Ta del 50% si ottiene:
+S = T/[0.25T + 0.5T] = 1.33x
+
+La risposta quindi è la B

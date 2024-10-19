@@ -1,0 +1,8 @@
+permessi        user    group   others
+                -we     --e     r--
+                011     001     100         in binario
+                3       1       4           in ottale
+
+quindi i permessi saranno 0314
+D
+            

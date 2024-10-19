@@ -1,0 +1,14 @@
+S = T/T'
+
+T = Ta + Tb = 0.6T + 0.4T
+
+se riduciamo Ta del 50% si ottiene:
+S = T/T' = T/[0.3T + 0.4T] = 1.4x
+
+se riduciamo Ta del 60% si ottiene:
+S = T/T' = T/[0.24T + 0.4T] = 1.56x
+
+se riduciamo Ta dell'80% si ottiene:
+S = T/T' = T/[0.12T + 0.4T] = 1.9x
+
+D

@@ -1,0 +1,3 @@
+D
+
+se lo spazio logico è molto grande, anche il numero di pagine sarà alto e conseguentemente anche la dimensione della tabella delle pagine sarà alta

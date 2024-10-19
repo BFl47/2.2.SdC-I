@@ -1,0 +1,7 @@
+permessi:   user    group   others
+            rwe     rw-     r--
+            111     110     100
+              7       6       4
+
+quindi i permessi saranno 0764
+A
